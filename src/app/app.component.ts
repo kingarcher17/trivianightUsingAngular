@@ -10,16 +10,43 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AppComponent implements OnInit {
 
-    //public triviaList = [];
     trivia: Trivia;
+    // score
+    correctCount: number = 0;
+    totalCount: number = 0;
+    // timer
+    timeLeft: number = 100;
+    interval;
 
     constructor(private appService: AppService, public snackBar: MatSnackBar){}
 
     ngOnInit() {
-      this.getQuestions();
+      this.start();
     }
 
-    getQuestions() {
+    start() {
+      this.startTimer();
+      this.correctCount = 0;
+      this.totalCount = 0;
+      this.getNextQuestion();
+    }
+
+    startTimer() {
+      this.interval = setInterval(() => {
+        if(this.timeLeft > 0) {
+          this.timeLeft--;
+        } else {
+          this.resetTimer();
+        }
+      },1000)
+    }
+
+    resetTimer() {
+      this.timeLeft = 100;
+    }
+
+    getNextQuestion() {
+      this.resetTimer();
       this.appService.getQuestions().subscribe((result: any) => {
         console.log(result.results);
         this.parseTreeResult(result.results);
@@ -63,22 +90,14 @@ export class AppComponent implements OnInit {
       return a;
   }
 
-    openSnackBar(message: string) {
-      this.snackBar.open(message, 'close', {
-         duration: 2000,
-      });
-    }
-
     answerQuestion(isCorrect: boolean) {
       if (isCorrect) {
-        alert('Correct!');
-        this.getQuestions();
-      } else {
-        alert('Wrong! Please try again.');
+        this.correctCount +=1;
+      }
+
+      this.totalCount +=1;
+      this.getNextQuestion();
     }
-
-
-}
 }
 
 
