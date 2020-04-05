@@ -36,7 +36,7 @@ export class AppComponent implements OnInit {
         if(this.timeLeft > 0) {
           this.timeLeft--;
         } else {
-          this.resetTimer();
+          this.answerQuestion(false);
         }
       },1000)
     }
