@@ -3,3 +3,42 @@
 .mat-card {
   width: 400px;
 }
+
+.quiz-options {
+  height: 300px;
+}
+
+.quiz-option-button {
+  background-color: #DEDE19;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.restart {
+  background-color: #9E4A4A;
+  font-weight: bold;
+}
+
+.quiz-option:hover {
+  background-color: #F8F80E;
+}
+
+.restart:hover {
+  background-color: #C43E3E;
+}
+
+.mat-card {
+  background-color: #F7F7F1;
+}
+
+.footer {
+  font-size: 9px;
+  font-weight: bold;
+}
+
+::ng-deep {
+  .progress-inner  {
+    color: transparent;
+  }
+}
+

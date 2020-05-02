@@ -35,6 +35,7 @@ export class AppComponent implements OnInit {
       this.interval = setInterval(() => {
         if(this.timeLeft > 0) {
           this.timeLeft--;
+
         } else {
           this.answerQuestion(false);
         }

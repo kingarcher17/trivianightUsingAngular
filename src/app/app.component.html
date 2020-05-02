@@ -2,12 +2,13 @@
   <mat-card class="mat-card">
     <mat-card-content>
       <div fxLayoutAlign="row">
-        <h2 fxFlex="30%">score: {{correctCount}}/{{totalCount}}</h2>
-        <button mat-raised-button fxFlex (click)="start()">Try Again</button>
+        <h2 fxFlex="50%">score: {{correctCount}}/{{totalCount}} of 5</h2>
+        <button mat-raised-button fxFlex (click)="start()" class="restart">RESTART</button>
       </div>
       <div *ngIf="totalCount<5">
-        <progress-bar [progress]="timeLeft" [color]="'#488aff'"></progress-bar>
+        <progress-bar [progress]="timeLeft" [color]="timeLeft>30?'#127734':'#F31111'" [disable-percentage]=true></progress-bar>
       </div>
+
       <div *ngIf="totalCount==5">
         <h3 *ngIf="correctCount>2">Good Job!</h3>
         <h3 *ngIf="correctCount<3">Sorry, better luck next time!</h3>
@@ -20,10 +21,16 @@
     <mat-card-header>
         <h3 [innerHTML]=trivia.question></h3>
     </mat-card-header>
-    <mat-card-content *ngFor="let answer of trivia.answers">
-        <button mat-raised-button (click)="answerQuestion(answer.correctAnswer)" fxFlex="100" [innerHtml]=answer.answer></button>
+    <mat-card-content>
+      <div class="quiz-options">
+        <div *ngFor="let answer of trivia.answers">
+          <button mat-raised-button class="quiz-option-button" (click)="answerQuestion(answer.correctAnswer)" fxFlex="100" [innerHtml]=answer.answer></button>
+        </div>
+      </div>
+      <span class="footer" fxLayoutAlign="center">(c) kingarchercorp - questions c/o opentdb.com</span>
     </mat-card-content>
   </mat-card>
 </div>
+
 
 
