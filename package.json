@@ -29,7 +29,7 @@
     "rxjs-observable": "0.0.7",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2",
-    "@angular-devkit/build-angular": "~0.901.0-next.4",
+    "@angular-devkit/build-angular": "~0.901.15",
     "@angular/cli": "~9.1.0-next.4",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
@@ -50,7 +50,7 @@
     "typescript": "~3.8.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.0-next.4",
+    "@angular-devkit/build-angular": "~0.901.15",
     "@angular/cli": "~9.1.0-next.4",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
